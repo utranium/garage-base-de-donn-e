@@ -1,4 +1,4 @@
-# garage-base-de-donn-e
+# garage-base-de-donne
 
 - Aprentissage du fonctionnement d'une base de donnée avec Excel.
 - prérequis : Excel
