@@ -1,0 +1,313 @@
+<html><head>
+<title>Schema Report for database: mydb</title>
+<style>
+        td,th {
+        text-align:left;
+        vertical-align:middle;
+        }
+        table {
+        border-collapse: collapse;
+        border: 1px solid;
+        }
+        caption, th, td {
+        padding: .2em .8em;
+        border: 1px solid #000000;
+        }
+        caption {
+        background: #D3D3D3;
+        font-weight: bold;
+        font-size: 1.1em;
+        }
+        th {
+        font-weight: bold;
+        background: #000000;
+        color: white;
+        }
+        td {
+        background: #FFFFFF;
+        }
+        </style>
+      </head>
+     <body>
+<h1>Schema Report for database: mydb</h1>
+<a id="home">Table List </a><br /><ul>
+<li><a href="#agence pizzeracademy">agence pizzeracademy </a></li>
+<li><a href="#commande">commande </a></li>
+<li><a href="#Client">Client </a></li>
+<li><a href="#adresse">adresse </a></li>
+<li><a href="#info bancaire">info bancaire </a></li>
+<li><a href="#pizza">pizza </a></li>
+<li><a href="#ingredients">ingredients </a></li>
+<li><a href="#aide mémoire">aide mémoire </a></li>
+<li><a href="#gestion stock">gestion stock </a></li>
+<li><a href="#aide mémoire_has_ingredients">aide mémoire_has_ingredients </a></li>
+<li><a href="#type paiements">type paiements </a></li>
+<li><a href="#pizza_has_commande">pizza_has_commande </a></li>
+<li><a href="#ingredients_has_pizza">ingredients_has_pizza </a></li>
+<li><a href="#commande d'ingredient">commande d'ingredient </a></li>
+<li><a href="#commande d'ingredient_has_ingredients">commande d'ingredient_has_ingredients </a></li>
+</ul>
+<a id="agence pizzeracademy"></a><table style="width:100%"><caption>Table: agence pizzeracademy </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_agence</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>commande_idcommande</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>adresse_id_adresse</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>nom</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td>'nom de l\'agence'</td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="commande"></a><table style="width:100%"><caption>Table: commande </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_commande</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>paiement</td><td>TINYINT(0)</td><td>Yes</td><td>No</td><td>No</td><td>effectué ou pas. o non. 1 oui</td><td></td></tr>
+<tr><td>datetime</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td>date a laquelle la commande fut passée</td><td></td></tr>
+<tr><td>etat</td><td>ENUM('preparation', 'livraison', 'reception')</td><td>Yes</td><td>No</td><td>No</td><td>'etat de la commande'</td><td></td></tr>
+<tr><td>moyen_de_commande</td><td>ENUM('tel', 'int', 'pers')</td><td>Yes</td><td>No</td><td>No</td><td>'commande passée par tel , internet ou pers'</td><td></td></tr>
+<tr><td>Client_id_Client</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Client_adresse_id_adresse</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Client_info bancaire_idinfo bancaire</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>type paiements_id_type paiements</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Client"></a><table style="width:100%"><caption>Table: Client </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_Client</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nom</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td>'nom'</td><td></td></tr>
+<tr><td>prenom</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td>'prenom'</td><td></td></tr>
+<tr><td>tel</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td>'téléphone'</td><td></td></tr>
+<tr><td>@mail</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td>'@mail'</td><td></td></tr>
+<tr><td>sexe</td><td>TINYINT(1)</td><td>Yes</td><td>No</td><td>No</td><td>1 = homme. 0 = femme</td><td></td></tr>
+<tr><td>anniversaire</td><td>DATE</td><td>No</td><td>No</td><td>No</td><td>anniversaire</td><td></td></tr>
+<tr><td>adresse_id_adresse</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>info bancaire_idinfo bancaire</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="adresse"></a><table style="width:100%"><caption>Table: adresse </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_adresse</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>numéro</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td>'numéro'</td><td></td></tr>
+<tr><td>rue</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td>'rue'</td><td></td></tr>
+<tr><td>code_postal</td><td>VARCHAR(45)</td><td>Yes</td><td>No</td><td>No</td><td>'code postal'</td><td></td></tr>
+<tr><td>ville</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td>'ville'</td><td></td></tr>
+<tr><td>pays</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td>'pays'</td><td></td></tr>
+<tr><td>complément</td><td>VARCHAR(255)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="info bancaire"></a><table style="width:100%"><caption>Table: info bancaire </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_info bancaire</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>numéro_de_carte</td><td>VARCHAR(34)</td><td>Yes</td><td>No</td><td>No</td><td>'iban'</td><td></td></tr>
+<tr><td>nom_porteur</td><td>VARCHAR(255)</td><td>Yes</td><td>No</td><td>No</td><td>'nom du proprietaire de la carte'</td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="pizza"></a><table style="width:100%"><caption>Table: pizza </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_pizza</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nom_pizza</td><td>VARCHAR(60)</td><td>Yes</td><td>No</td><td>No</td><td>'nom de la pizza'</td><td></td></tr>
+<tr><td>taille</td><td>ENUM('petite', 'normale', 'moyenne', 'grande', 'giga')</td><td>Yes</td><td>No</td><td>No</td><td>'taille de la pizza'</td><td></td></tr>
+<tr><td>prix</td><td>FLOAT(4,2)</td><td>Yes</td><td>No</td><td>No</td><td>prix unitaire d'une pizza de ce genre</td><td></td></tr>
+<tr><td>aide mémoire_id_aide mémoire</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="ingredients"></a><table style="width:100%"><caption>Table: ingredients </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_ingredients</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>ingr_nom</td><td>VARCHAR(60)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>quantitée</td><td>FLOAT(6,3)</td><td>No</td><td>No</td><td>No</td><td>quantitée en gramme</td><td></td></tr>
+<tr><td>gestion stock_id_gestion stock</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="aide mémoire"></a><table style="width:100%"><caption>Table: aide mémoire </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_aide mémoire</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nom_de_la_recette</td><td>VARCHAR(60)</td><td>Yes</td><td>No</td><td>No</td><td>'nom de la pizza'</td><td></td></tr>
+<tr><td>temps_de_cuisson</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>temps_de_préparation</td><td>DATETIME</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="gestion stock"></a><table style="width:100%"><caption>Table: gestion stock </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_gestion stock</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nom</td><td>VARCHAR(45)</td><td>Yes</td><td>No</td><td>No</td><td>'nom de l\'aliment'</td><td></td></tr>
+<tr><td>quantitée_restante</td><td>FLOAT(7,3)</td><td>Yes</td><td>No</td><td>No</td><td>quantitée restante en Kg</td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="aide mémoire_has_ingredients"></a><table style="width:100%"><caption>Table: aide mémoire_has_ingredients </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>aide mémoire_id_aide mémoire</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>ingredients_id_ingredients</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="type paiements"></a><table style="width:100%"><caption>Table: type paiements </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_type paiements</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>CB</td><td>VARCHAR(40)</td><td>Yes</td><td>No</td><td>No</td><td>'moyen de paiement'</td><td></td></tr>
+<tr><td>autres</td><td>VARCHAR(45)</td><td>Yes</td><td>No</td><td>No</td><td>'autre moyen de paiement'</td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="pizza_has_commande"></a><table style="width:100%"><caption>Table: pizza_has_commande </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>pizza_id_pizza</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>pizza_aide mémoire_id_aide mémoire</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>commande_idcommande</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="ingredients_has_pizza"></a><table style="width:100%"><caption>Table: ingredients_has_pizza </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>ingredients_id_ingredients</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>pizza_id_pizza</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>pizza_aide mémoire_id_aide mémoire</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="commande d'ingredient"></a><table style="width:100%"><caption>Table: commande d'ingredient </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>id_commande_d'ingredient</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nom_ingredient</td><td>VARCHAR(45)</td><td>Yes</td><td>No</td><td>No</td><td>'nom de l\'ingredient'</td><td></td></tr>
+<tr><td>prix unitaire</td><td>INT</td><td>Yes</td><td>No</td><td>No</td><td>prix unitaire</td><td></td></tr>
+<tr><td>date</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td>date de l'achat</td><td></td></tr>
+<tr><td>agence pizzeracademy_idagence</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>agence pizzeracademy_commande_idcommande</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>agence pizzeracademy_adresse_id_adresse</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="commande d'ingredient_has_ingredients"></a><table style="width:100%"><caption>Table: commande d'ingredient_has_ingredients </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>commande d'ingredient_id_commande_d'ingredient</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>ingredients_id_ingredients</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+</body></html>
